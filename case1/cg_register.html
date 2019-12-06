@@ -15,7 +15,7 @@
    -->
    
    <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta iewport" content="width=device-width, initial-scale=1" />
    <title>CGIP Registration Form</title>
    <link href="cg_base.css" rel="stylesheet" />
    <link href="cg_styles.css" rel="stylesheet" />
@@ -55,8 +55,53 @@
       <p>Required Item (*)</p>
       
       <form action="http:www.example.com/cg/register" method="POST">
-         <label for="title">Title</label>
-         <input id="title" name="title" type="text" placeholder="proof" />
+         <label for="titleBox">Title</label>
+         <input id="titleBox"  name="title" type="text" list="titleList"/>
+
+         <label for="fnBox">First Name*</label>
+         <input id="fnBox" required name="firstName" type="text" />
+
+         <label for="lnBox">Last Name*</label>
+         <input  id="lnBox" required name="lastName" type="text" />
+
+         <label for="addBox">Address*</label>
+         <textarea id="addBox" required></textarea>
+
+         <label for="groupBox">Company or University</label>
+         <input id="groupBox" name="group" type="text" />
+
+         <label for="mailBox">E-mail*</label>
+         <input id="mailBox" required name="email" type="email" />
+
+         <label for="phoneBox">Phone Number*</label>
+         <input id="phoneBox" required name="phoneNumber" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$"
+         type="tel" placeholder="(nnn)nnn-nnnn" />
+
+         <label for="idBox">ACGIP Membership Number</label>
+         <input id="idBox" name="acgipID" pattern="^acgip\-\d{6}$"
+         type="text" placeholder="acgip-nnnnnn" />
+
+         
+         <datalist id="titleList">
+            <option value="Mr."></option>
+            <option value="Mrs."></option>
+            <option value="Ms."></option>
+            <option value="Prof."></option>
+            <option value="Dr."></option>
+            <option value="Assist. Prof."></option>
+            <option value="Assoc. Prof."></option>
+         </datalist>
+
+         <label for="regList">Registration Category</label>
+         <input id="redList" name="registerType" type="text" list="regList" />
+         <datalist id="regList">
+            <option value="member">ACGIP Member ($695)</option>
+            <option value="nonmember">Non-Member ($795)</option>
+            <option value="student">Student ($310)</option>
+            <option value="poster">Poster ($95)</option>
+            <option value="guest">Guest ($35)</option>
+         </datalist>
+         <p><input type="submit" value="Continue"/></p>
       </form>
    </section>
    
