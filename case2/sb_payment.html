@@ -19,17 +19,18 @@
    <title>Spice Bowl Payment Form</title>
    <link href="sb_reset.css" rel="stylesheet" />
    <link href="sb_styles.css" rel="stylesheet" />
+   <link href="sb_forms.css" rel="stylesheet" />
    <link href="sb_validate.css" rel="stylesheet" />
    <script src="sb_script.js"></script>
 </head>
 
 <body>
    <header>
+      <img src="sb_logo.png" alt="The Spice Bowl" />
       <form action="http://www.example.com/sb/login" id="login" method="POST">
          <input type="text" id="userBox" name="username" placeholder="username"/>
          <input type="text" id="pwdBox" name="password" placeholder="password" />
       </form>
-      <img src="sb_logo.png" alt="The Spice Bowl" />
 
       <nav><a id="navicon" href="#"><img src="sb_navicon.png" alt="" /></a>
          <ul>
@@ -47,8 +48,106 @@
       <form action="http:://www.example.com/sb/payment" id="payment" method="POST" >
          <fieldset id="billing">
             <legend>Billing Information (required)</legend>
-            <label></label>
+            <label for="firstBox">First Name*</label>
+            <input id="firstBox" name="fName" type="text" required/>
+
+            <label for="lastBox">Last Name*</label>
+            <input id="lastBox" name="lName" type="text" required/>
+
+            <label for="streetBox">Street Address*</label>
+            <input id="streetBox" name="street" type="text" required/>
+
+            <label for="streetBox">Street Address (2)</label>
+            <input id="streetBox2" name="street2" type="text" required/>
+            
+            <label for="cityBox">City</label>
+            <input id="cityBox" name="city" type="text" />
+
+            <label for="stateBox">state</label>
+            <input id="stateBox" name="state" type="text" list="stateList" required />
+
+            <label for="zipBox">ZIP/Postal Code</label>
+            <input id="zipBox" name="zip" type="text" pattern="^\d{5}(-\d{4})?$"/>
+
+            <label for="countryBox">country*</label>
+            <input id="countryBox" name="country" type="text" required value="United states" />
+            
+            <label for="phoneBox">Phone*</label>
+            <input id="phoneBox" name="phone" type="tel" 
+            pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$" required />
          </fieldset>
+         <fieldset id="creditCard">
+            <legend>Credit Card (required)</legend>
+            <fieldset>
+               <label class="cardLabel"><input id="creditCard" value="amex" type="radio"/>
+               <img src="sb_amex.png" /></label>
+               <label class="cardLabel"><input id="creditCard" value="discover" type="radio" />
+               <img src="sb_discover.png" /></label>
+               <label class="cardLabel"><input id="creditCard" value="master" type="radio"/>
+               <img src="sb_master.png" /></label>
+               <label class="cardLabel"><input id="creditCard" value="visa" type="radio"/>
+               <img src="sb_visa.png" /></label>
+            </fieldset>
+            <label for="cardBox">Credit Card Number</label>
+            <input id="cardBox" name="cardNumber" required 
+            pattern="^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])
+            [0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$" />
+            <label list="monthList">Expiration Date</label>
+            <select id="monthList" required>
+               <option value="">--month--</option>
+               <option value="">1</option>
+               <option value="">2</option>
+               <option value="">3</option>
+               <option value="">4</option>
+               <option value="">5</option>
+               <option value="">6</option>
+               <option value="">7</option>
+               <option value="">8</option>
+               <option value="">9</option>
+               <option value="">10</option>
+               <option value="">11</option>
+               <option value="">12</option>
+            </select>
+            <select id="yearList" required>
+               <option value="">2017</option>
+               <option value="">2018</option>
+               <option value="">2019</option>
+               <option value="">2020</option>
+               <option value="">2021</option>
+            </select>
+            <label id="cscBox">CSC</label>
+            <input type="text" name="cscBox" required pattern="^\d{3}$" max="3" placeholder="nnn"/>
+         </fieldset>
+         <button type="submit">
+            <img src="sb_button.png">
+         </button>
+         <datalist id="stateList">
+            <option value="AL"></option><option value="AK"></option>
+            <option value="AZ"></option><option value="AR"></option>
+            <option value="CA"></option><option value="CO"></option>
+            <option value="CT"></option><option value="DE"></option>
+            <option value="FL"></option><option value="GA"></option>
+            <option value="HI"></option><option value="ID"></option>
+            <option value="IL"></option><option value="IN"></option>
+            <option value="IA"></option><option value="KS"></option>
+            <option value="KY"></option><option value="LA"></option>
+            <option value="ME"></option><option value="MD"></option>
+            <option value="MA"></option><option value="MI"></option>
+            <option value="MN"></option><option value="MS"></option>
+            <option value="MO"></option><option value="MT"></option>
+            <option value="NE"></option><option value="NV"></option>
+            <option value="NH"></option><option value="NJ"></option>
+            <option value="NM"></option><option value="NY"></option>
+            <option value="NC"></option><option value="ND"></option>
+            <option value="OH"></option><option value="OK"></option>
+            <option value="OR"></option><option value="PA"></option>
+            <option value="RI"></option><option value="SC"></option>
+            <option value="SD"></option><option value="TN"></option>
+            <option value="TX"></option><option value="UT"></option>
+            <option value="VT"></option><option value="VA"></option>
+            <option value="WA"></option><option value="WV"></option>
+            <option value="WI"></option><option value="WY"></option>
+         </datalist>
       </form>
 
       <aside>
